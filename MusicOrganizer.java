@@ -28,6 +28,7 @@ public class MusicOrganizer
         tracks = new ArrayList<>();
         player = new MusicPlayer();
         reader = new TrackReader();
+        rando = new Random();
         readLibrary("../audio");
         System.out.println("Music library loaded. " + getNumberOfTracks() + " tracks.");
         System.out.println();
@@ -144,9 +145,8 @@ public class MusicOrganizer
      */
     public void randomTrack()
     {
-        Random randomSong= new Random();
         
-        int randomPick=randomSong.nextInt(tracks.size());
+        int randomPick=rando.nextInt(tracks.size());
         
         playTrack(randomPick);
         
@@ -155,9 +155,12 @@ public class MusicOrganizer
     /**
      * Creates and plays a random track list
      */
-        
+     public void randomTrackList()
+     {
+         
+     }
 
-    }
+    
 
     /**
      * Determine whether the given index is valid for the collection.
