@@ -158,20 +158,40 @@ public class MusicOrganizer
      public void randomTrackList()
      {
          ArrayList<Track> randomTracks = new ArrayList<Track>();
+         int indexOverwrite=0;
+         int indexPlay=0;
          
-         int index=0;
+         while(indexOverwrite<tracks.size())
+         {
+             randomTracks.add(tracks.get(indexOverwrite));
+             ++indexOverwrite;    
+         }
          
          Collections.shuffle(randomTracks);
          
-         while(index<randomTracks.size())
+         while(indexPlay<randomTracks.size())
          {
-             playTrack(index);
-             ++index;
+            Track track = randomTracks.get(indexPlay);
+            player.playSample(track.getFilename());
+            System.out.println("Now playing: " + track.getArtist() + " - " 
+            + track.getTitle());
+            ++indexPlay;
          }
          
      }
+     
+    /**
+     * Show a list of all the tracks in the collection.
+     */
+    public void listAllTracksRandom()
+    {
+        System.out.println("Track listing: ");
 
-    
+        for(Track track : tracks) {
+            System.out.println(track.getDetails());
+        }
+        System.out.println();
+    }
 
     /**
      * Determine whether the given index is valid for the collection.
