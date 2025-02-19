@@ -157,6 +157,17 @@ public class MusicOrganizer
      */
      public void randomTrackList()
      {
+         ArrayList<Track> randomTracks = new ArrayList<Track>();
+         
+         int index=0;
+         
+         Collections.shuffle(randomTracks);
+         
+         while(index<randomTracks.size())
+         {
+             playTrack(index);
+             ++index;
+         }
          
      }
 
